@@ -1,0 +1,9 @@
+# Local loopback interface
+auto lo
+iface lo inet loopback
+
+# Use eth1 for production deployment. eth0 is for upstream
+auto eth0
+iface eth0 inet static
+        address 10.42.1.1
+        netmask 255.255.0.0
