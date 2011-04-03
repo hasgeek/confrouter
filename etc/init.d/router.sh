@@ -34,6 +34,8 @@ case "$1" in
 
 		iptables --table nat --append POSTROUTING -j MASQUERADE
 		iptables --append FORWARD --in-interface $DOWNSTREAM_IFACE -j ACCEPT
+		iptables -A FORWARD -p tcp --dport 6881:7000  -j DROP
+		iptables -A FORWARD -p tcp --dport 2710 -j DROP
 
 		echo 1 > /proc/sys/net/ipv4/ip_forward
 
